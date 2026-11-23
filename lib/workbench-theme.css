@@ -1,0 +1,361 @@
+@font-face {
+  font-family: "Gojo Yuji Boku";
+  src: url("/gojo-theme/fonts/v2/yuji-boku.woff") format("woff");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Gojo WenKai";
+  src: url("/gojo-theme/fonts/v2/wenkai.woff") format("woff");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+/* DSH resolves typography shorthands on body, including for portal content. */
+html > body {
+  --gojo-font-family: "Gojo Yuji Boku", "Gojo WenKai", "PingFang SC", sans-serif;
+  --dsh-font-family-text: var(--gojo-font-family) !important;
+  --dsh-font-family-code: var(--gojo-font-family) !important;
+  --dsw-font-family-brand: var(--gojo-font-family);
+  --dsw-font: var(--gojo-font-family);
+  --dsw-font-mono: var(--gojo-font-family);
+  --dsh-font-mono: var(--gojo-font-family);
+}
+
+/* DSH 0.2.2-rc.1 hardcodes Inter in these editors, queue and Forge controls. */
+body :is(
+  ._editor_61ozo_1,
+  ._6DJyyG_count,
+  ._6DJyyG_preview,
+  .whyavG_root,
+  .whyavG_thread,
+  .b7w9BG_form
+) {
+  font-family: var(--dsw-font-family);
+}
+
+body :is(.AnVs6G_table, .AnVs6G_objectTree, .AnVs6G_objectTree ul) {
+  font-family: var(--ds-font-family-code);
+}
+
+/* The installed skin is light across DSH, including menus and dialogs mounted on body.
+   Keep the host appearance preference intact and pair each surface with its text tokens. */
+html > body:has(#root) {
+  color-scheme: light;
+  color: var(--dsw-alias-label-primary);
+
+  --dsw-alias-bg-base: #eff6fc;
+  --dsw-alias-bg-layer-1: #f8fcff;
+  --dsw-alias-bg-layer-2: #fcfeff;
+  --dsw-alias-bg-layer-3: #deedf9;
+  --dsw-alias-bg-module-platform: #e3f0fa;
+  --dsw-alias-bg-multi-select: #e3f0fa;
+  --dsw-alias-bg-document-preview: var(--dsw-alias-bg-base);
+  --dsw-alias-bg-overlay: #e3eef8;
+  --dsw-alias-bg-skeleton: #254d7214;
+  --dsw-alias-bg-mask-1: #102d483d;
+  --dsw-alias-bg-mask-2: #102d481f;
+  --dsw-alias-bg-mask-drop: #eff6fcb3;
+
+  --dsw-alias-label-primary: #102d48;
+  --dsw-alias-label-primary-bluish: #204c74;
+  --dsw-alias-label-secondary: #40607c;
+  --dsw-alias-label-tertiary: #42647f;
+  --dsw-alias-label-caption: #456583;
+  --dsw-alias-label-primary-dimmed: var(--dsw-alias-label-secondary);
+  --dsw-alias-label-dimmed: var(--dsw-alias-label-tertiary);
+  --dsw-alias-label-document-preview: var(--dsw-alias-label-primary);
+  --dsw-alias-label-primary-foreground: #fcfeff;
+  --dsw-alias-label-primary-inverted: #f8fcff;
+  --dsw-alias-label-deep-diving: #204c74;
+  --dsw-alias-label-deep-diving-shimmer: #3970a0;
+  --dsw-alias-label-shimmer: #102d484d;
+  --dsw-alias-link: #245b8a;
+  --dsw-alias-brand-primary: var(--dsw-alias-label-primary);
+  --dsw-alias-brand-primary-invert: var(--dsw-alias-label-primary);
+  --dsw-alias-brand-primary-new-colorprimary-new-color: #286496;
+  --dsw-alias-brand-text: var(--dsw-alias-label-primary);
+
+  --dsw-alias-border-l1: #254d7214;
+  --dsw-alias-border-l2: #254d7221;
+  --dsw-alias-border-l2-darkmode-thin: var(--dsw-alias-border-l2);
+  --dsw-alias-border-l3: #254d7233;
+  --dsw-alias-border-l4: #254d7247;
+  --dsw-alias-border-inverted: transparent;
+  --dsw-alias-border-inverted2: transparent;
+  --dsw-alias-interactive-bg-hover: #386e9c19;
+  --dsw-alias-interactive-bg-hover-solid: #e3f0fa;
+  --dsw-alias-interactive-bg-hover-accent: #3173aa29;
+  --dsw-alias-interactive-bg-hover-danger: #ec13130d;
+  --dsw-alias-interactive-bg-active: #c5def3;
+  --dsw-alias-button-contrast-fill: #40607c;
+  --dsw-alias-button-elevated-fill: #f8fcff;
+  --dsw-alias-button-floating-fill: #f8fcff;
+  --dsw-alias-button-floating-hover: #deedf9;
+  --dsw-alias-button-ghost-active-border: #7898b4;
+  --dsw-alias-button-ghost-active-fill: #deedf9;
+  --dsw-alias-button-ghost-active-hover: #c5def3;
+  --dsw-alias-button-info-fill: #286496;
+  --dsw-alias-button-info-hover: #204f77;
+  --dsw-alias-button-primary-dimmed: #d6e7f4;
+  --dsw-alias-button-primary-hover: #204c74;
+  --dsw-alias-switch-thumb: #fcfeff;
+
+  --dsw-specific-input-major: #fcfeff;
+  --dsw-specific-login-input: #f5faff;
+  --dsw-specific-selector: #e3f0fa;
+  --dsw-specific-tip: #e3f0fa;
+  --dsw-specific-bubble: #deedf9;
+  --dsw-specific-bubble-highlight: #c5def3;
+  --dsw-specific-sidebar-fill: #f8fcff;
+  --dsw-specific-sidebar-nav-item-active: #deebf7;
+  --dsw-specific-sidebar-nav-item-active-accent: #deebf7;
+  --dsw-menu-surface-fill: #f8fcfff2;
+  --dsw-specific-menu: var(--dsw-menu-surface-fill);
+  --dsw-alias-menu-group-header-fill: #f5fafff5;
+  --dsw-alias-menu-icon: var(--dsw-alias-label-secondary);
+  --dsw-alias-scrollbar-bg-l1: #afc4d6;
+  --dsw-alias-scrollbar-bg-l2: #afc4d6;
+  --dsw-alias-scrollbar-hover-l1: #7898b4;
+  --dsw-alias-scrollbar-hover-l2: #7898b4;
+
+  --dsw-alias-markdown-citation: #deedf9;
+  --dsw-alias-markdown-inline-code: #deedf9;
+  --dsw-alias-markdown-code-block: #f5faff;
+  --dsw-alias-markdown-code-block-banner: #e6f0f9;
+  --dsw-alias-markdown-code-segment-selected: #fcfeff;
+  --dsw-alias-markdown-code-segment-unselected: #deedf9;
+  --dsw-alias-markdown-placeholder: #e3f0fa;
+  --dsw-alias-markdown-tag: #deedf9;
+  --dsw-alias-turn-trigger-bg: var(--dsw-alias-markdown-code-block);
+  --dsw-alias-turn-trigger-bg-hover: var(--dsw-alias-interactive-bg-hover);
+  --shiki-foreground: var(--dsw-alias-label-primary);
+  --shiki-background: var(--dsw-alias-markdown-code-block);
+  --shiki-token-constant: #245888;
+  --shiki-token-string: #256449;
+  --shiki-token-string-expression: var(--shiki-token-string);
+  --shiki-token-comment: #536b80;
+  --shiki-token-keyword: #842a5b;
+  --shiki-token-parameter: #8a4721;
+  --shiki-token-function: #554398;
+  --shiki-token-punctuation: #36546e;
+  --shiki-token-link: #245888;
+
+  --dsw-alias-state-business-primary: #286496;
+  --dsw-alias-state-business-tertiary: #deedf9;
+  --dsw-alias-state-done-primary: #6b40a7;
+  --dsw-alias-state-error-primary: #b42324;
+  --dsw-alias-state-idle-primary: #afc4d6;
+  --dsw-alias-state-success-primary: #1e6e49;
+  --dsw-alias-state-success-tertiary: #e6faed;
+  --dsw-alias-state-warn-label: #805316;
+  --dsw-alias-state-warn-primary: #8a5812;
+  --dsw-alias-state-warn-tertiary: #fef5e7;
+  --dsw-alias-code-diff-added: var(--dsw-static-green-500-a08);
+  --dsw-alias-code-diff-deleted: var(--dsw-static-red-600-a08);
+  --dsw-alias-file-diff-added-bg: #e6f4e7;
+  --dsw-alias-file-diff-added-gutter: #edf7ed;
+  --dsw-alias-file-diff-added-marker: #177140;
+  --dsw-alias-file-diff-deleted-bg: #fce6e2;
+  --dsw-alias-file-diff-deleted-gutter: #fdece9;
+  --dsw-alias-file-diff-deleted-marker: #ba2723;
+  --dsw-alias-toast-bg: #204663;
+  --dsw-alias-tooltip-bg: #204663;
+
+  --dsw-alias-illustration-background: #f5faff;
+  --dsw-alias-illustration-backing: #cadbe9;
+  --dsw-alias-illustration-detail: #adc6db;
+  --dsw-alias-illustration-surface: #e3f0fa;
+  --dsw-alias-illustration-inset: var(--dsw-alias-illustration-surface);
+  --dsw-alias-illustration-shadow: var(--dsw-alias-illustration-surface);
+  --dsw-alias-onboarding-card-fill: #f8fcffcc;
+  --dsw-alias-onboarding-secondary-fill: #fcfeff;
+  --dsw-alias-onboarding-checkbox-border: var(--dsw-alias-border-l4);
+  --dsw-linear-gradient-think: linear-gradient(180deg, #eff6fc 20.19%, #eff6fc00);
+  --dsw-linear-think-select: linear-gradient(180deg, #e3f0fa 20.19%, #e3f0fa00);
+}
+
+/* DSH's dark selectors on result, plan, execution and file-change cards bypass the palette. */
+#root :is(.IBlBFq_root, ._0K0vAa_card, .Tbt3mW_card, .vdszpW_card) {
+  --deliverable-fill: var(--dsw-alias-bg-layer-1);
+  --deliverable-hover: var(--dsw-alias-bg-module-platform);
+  --plan-card-fill: var(--dsw-alias-bg-layer-1);
+  --plan-card-hover: var(--dsw-alias-bg-module-platform);
+  --card-fill: var(--dsw-alias-bg-layer-1);
+  --card-hover: var(--dsw-alias-bg-module-platform);
+  --changes-fill: var(--dsw-alias-bg-layer-1);
+  --changes-hover: var(--dsw-alias-bg-module-platform);
+}
+
+#root :is(.IBlBFq_fileIcon, ._0K0vAa_cardIcon, .Tbt3mW_leading, .vdszpW_tile) {
+  background-color: var(--dsw-alias-bg-module-platform);
+}
+
+#root ._root_1bv28_1 {
+  --json-tree-property: var(--shiki-token-function);
+  --json-tree-string: var(--shiki-token-string);
+  --json-tree-number: var(--shiki-token-constant);
+  --json-tree-keyword: var(--shiki-token-keyword);
+  --json-tree-punctuation: var(--shiki-token-punctuation);
+  --json-tree-icon: var(--dsw-alias-label-secondary);
+  --json-tree-hover: var(--dsw-alias-interactive-bg-hover);
+}
+
+/* One background spans the docked tools. Each docked pane shows that same surface. */
+#root .PIRFFq_frame:not([data-rightbar-collapsed]) [data-sidebar-right-panel][data-sidebar-right-open="true"],
+#root :is([data-plugin-panel], [data-testid="task-manager-page"]),
+body [data-shortcut-modal="settings"] {
+  --gojo-panel-paper: var(--dsw-alias-bg-base);
+  background-color: var(--gojo-panel-paper);
+  background-image:
+    linear-gradient(to right, var(--gojo-panel-paper), color-mix(in srgb, var(--gojo-panel-paper) 68%, transparent)),
+    url("/gojo-theme/art/ink-right.webp");
+  background-size: min(32%, 188px) 100%;
+  background-position: right top;
+  background-repeat: no-repeat;
+}
+
+body [data-shortcut-modal="settings"] {
+  --gojo-panel-paper: var(--dsw-alias-bg-layer-2);
+}
+
+#root [data-slot="rightbar"] :is(
+  [data-dockkit-content][data-dockkit-pane],
+  [data-dockkit-empty],
+  [data-files-navigator].h_iMMG_wholePage,
+  .k_IHJa_root:has(.k_IHJa_placeholder)
+) {
+  background-color: transparent;
+}
+
+#root [data-slot="rightbar"] .F6Huca_hero {
+  color: var(--dsw-alias-label-tertiary);
+}
+
+#root .PIRFFq_frame:has([data-slot="main.conversation"] > [data-phase]):has(
+  [data-slot="sidebar"] .kB3qhq_root:not(.kB3qhq_collapsed)
+) {
+  --gojo-seam-art: url("/gojo-theme/art/ink-sidebar.webp");
+  --gojo-seam-height: calc(100% - 50px);
+}
+
+/* Opening the tools leaves less space for the chat. Keep the shared left edge
+   and reserve the stronger right-edge paint for the outside of the window. */
+#root .PIRFFq_frame:not([data-rightbar-collapsed]):has([data-sidebar-right-panel="push"][data-sidebar-right-open="true"]) {
+  --gojo-seam-wash: linear-gradient(to right, transparent, #eff6fca6 22% 80%, transparent);
+  --gojo-chat-edge-art: none;
+  --gojo-chat-center-art: none;
+  --gojo-chat-scrim: transparent;
+  --gojo-chat-shadow: transparent;
+}
+
+#root [data-slot="sidebar"] .kB3qhq_root:not(.kB3qhq_collapsed) {
+  background-image:
+    var(--gojo-seam-wash, none),
+    var(--gojo-seam-art, none),
+    linear-gradient(to right, var(--dsw-specific-sidebar-fill) 18%, var(--dsw-alias-bg-base) 100%);
+  background-size: 360px var(--gojo-seam-height, 100%), 360px var(--gojo-seam-height, 100%), 100% 100%;
+  background-position: right -152px bottom, right -152px bottom, center;
+  background-repeat: no-repeat;
+}
+
+#root [data-slot="main.conversation"] > [data-phase] {
+  /* The same artwork meets across the native divider. The right layer includes the header. */
+  background-image:
+    var(--gojo-seam-wash, none),
+    var(--gojo-seam-art, none),
+    var(--gojo-chat-edge-art, url("/gojo-theme/art/ink-right.webp"));
+  background-size: 360px var(--gojo-seam-height, 100%), 360px var(--gojo-seam-height, 100%), min(24%, 224px) 100%;
+  background-position: left -207px bottom, left -207px bottom, right top;
+  background-repeat: no-repeat;
+}
+
+#root [data-slot="main.conversation"] > [data-phase] > [data-conversation-content] {
+  background-image: var(--gojo-chat-center-art, url("/gojo-theme/art/ink-center.webp"));
+  background-size: min(692px, calc(100% - 32px)) 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+#root [data-slot="main.conversation"] > [data-phase] [data-conversation-scroll] .tnXGgG_column[data-chat-flow] {
+  /* This scrim scrolls with the native text column. Empty areas retain the stronger ink. */
+  background-color: var(--gojo-chat-scrim, color-mix(in srgb, var(--dsw-alias-bg-base) 82%, transparent));
+  box-shadow: 0 0 23px 10px var(--gojo-chat-shadow, color-mix(in srgb, var(--dsw-alias-bg-base) 56%, transparent));
+}
+
+#root ._markdown_rve47_5 :is(code, code *)::selection {
+  background-color: #c5def3;
+  color: var(--dsw-alias-label-primary);
+}
+
+@media (max-width: 900px) {
+  #root .PIRFFq_frame {
+    --gojo-seam-art: none !important;
+    --gojo-seam-wash: none !important;
+  }
+  #root [data-slot="main.conversation"] > [data-phase] > [data-conversation-content] {
+    background-image:
+      linear-gradient(rgb(239 246 252 / .49), rgb(239 246 252 / .49)),
+      var(--gojo-chat-center-art, url("/gojo-theme/art/ink-center.webp"));
+    background-size: 100% 100%, min(692px, calc(100% - 32px)) 100%;
+  }
+}
+
+#root [data-slot="main.conversation"] ._4if9eW_frame {
+  --dsw-alias-border-l4: #5b7890;
+}
+
+#root [data-slot="main.conversation"] ._4if9eW_markUnloaded {
+  --dsw-alias-border-l4: #244a69;
+}
+
+#root [data-slot="main.conversation"] .tnXGgG_toBottom {
+  --dsw-alias-button-floating-fill: #f8fcff;
+  --dsw-alias-border-l3: #55789680;
+}
+
+/* The official sidebar renders the name and HARNESS badge in a single SVG. */
+#root [data-slot="sidebar"] .kB3qhq_logoRow:has(.kB3qhq_brandMark svg) {
+  height: 76px;
+}
+
+#root [data-slot="sidebar"] .kB3qhq_brandIdentity:has(.kB3qhq_brandMark svg) {
+  height: 60px;
+}
+
+#root [data-slot="sidebar"] .kB3qhq_brandMark:has(svg) {
+  width: 52px;
+  height: 60px;
+  flex: none;
+}
+
+#root [data-slot="sidebar"] .kB3qhq_brandMark:has(svg)::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  flex: none;
+  mix-blend-mode: multiply;
+  background: url("/gojo-theme/art/six-eyes.svg") center / contain no-repeat;
+}
+
+#root [data-slot="sidebar"] .kB3qhq_brandMark svg {
+  display: none;
+}
+
+#root [data-slot="sidebar"] .kB3qhq_brandName:has(> [data-slot="sidebar.brand.name"] > svg [id="dsh-wordmark-badge-clip"])::before {
+  content: "GOJO";
+  flex: none;
+  color: var(--dsw-alias-label-primary);
+  font: 700 20px / 24px var(--gojo-font-family);
+  letter-spacing: .045em;
+}
+
+#root [data-slot="sidebar"] .kB3qhq_brandName > [data-slot="sidebar.brand.name"] > svg:has([id="dsh-wordmark-badge-clip"]) {
+  /* The native viewBox starts at x=26. The badge starts 103px into it. */
+  flex: 0 0 156px;
+  margin-inline-start: -103px;
+  clip-path: inset(0 0 0 103px);
+}

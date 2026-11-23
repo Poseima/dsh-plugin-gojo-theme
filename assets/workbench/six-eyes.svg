@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" fill="none">
+  <defs>
+    <radialGradient id="halo">
+      <stop stop-color="#f7fdff"/>
+      <stop offset=".58" stop-color="#b8eaff" stop-opacity=".65"/>
+      <stop offset="1" stop-color="#91cee9" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="iris" x1="39" y1="36" x2="58" y2="62" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#14345c"/><stop offset=".56" stop-color="#3ba5d7"/>
+      <stop offset="1" stop-color="#bdf7ff"/>
+    </linearGradient>
+  </defs>
+  <circle cx="48" cy="48" r="47" fill="url(#halo)"/>
+  <path d="M5 51Q22 30 48 30q27 0 43 21Q69 66 48 66T5 51Z" fill="#f8fcff"/>
+  <path d="M6 50q18-20 42-20t42 20M14 55q17 11 34 11t34-11" stroke="#173452" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="48" cy="48" r="13" fill="url(#iris)" stroke="#173452" stroke-width="1.7"/>
+  <circle cx="48" cy="48" r="4.5" fill="#102941"/>
+  <circle cx="52" cy="43" r="3" fill="#f7fdff"/>
+  <path d="m48 10 0 10m-5-5h10m-5 61 0 10m-5-5h10M25 18l4 6m42-6-4 6m-42 54 4-6m42 6-4-6" stroke="#54a9d1" stroke-width="1.5" stroke-linecap="round"/>
+</svg>

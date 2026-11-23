@@ -1,0 +1,162 @@
+.gojo-records {
+  position: fixed;
+  width: 116px;
+  z-index: 12;
+  display: grid;
+  justify-items: center;
+  color: #173b5d;
+  font-family: var(--gojo-font-family, sans-serif);
+  font-size: 12px;
+  -webkit-app-region: no-drag;
+}
+.gojo-records [hidden],
+.gojo-records[hidden] { display: none !important; }
+html:has(dialog[open], [role="alertdialog"]:not([hidden]), [role="dialog"][aria-modal="true"]:not([hidden]):not([aria-hidden="true"])) .gojo-records {
+  visibility: hidden;
+}
+.gojo-records button {
+  appearance: none;
+  padding: 0;
+  color: inherit;
+  background: none;
+  border: 0;
+  font: inherit;
+  cursor: pointer;
+}
+.gojo-records button:focus-visible {
+  outline: 2px solid #277ab7;
+  outline-offset: 3px;
+}
+.gojo-records .gojo-record-toggle {
+  position: relative;
+  width: 94px;
+  height: 94px;
+  display: block;
+  border-radius: 50%;
+  isolation: isolate;
+}
+.gojo-records .gojo-record-toggle:focus-visible { outline: none; }
+.gojo-record-toggle:focus-visible .gojo-record-disc {
+  filter: drop-shadow(0 0 4px #54bdf4) brightness(1.15);
+}
+.gojo-record-disc {
+  position: absolute;
+  inset: 0;
+  display: block;
+  border-radius: 50%;
+  filter: drop-shadow(0 2px 4px #1e4a7764);
+}
+.gojo-record-disc i {
+  display: block;
+  position: absolute;
+  inset: 0;
+}
+.gojo-record-disc i::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("/gojo-theme/records/ice-vinyl.webp") center / contain no-repeat;
+  opacity: .91;
+  animation: gojo-record-spin 2.6s linear infinite paused;
+}
+.gojo-record-fire {
+  position: absolute;
+  pointer-events: none;
+  z-index: -1;
+  width: 144px;
+  height: 148px;
+  top: -40px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.gojo-records[data-playing] .gojo-record-disc i::before { animation-play-state: running; }
+@keyframes gojo-record-spin { to { transform: rotate(360deg); } }
+.gojo-record-caption {
+  max-width: 100%;
+  margin: 3px 0 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  text-shadow: 0 0 3px #fff, 0 0 8px #f7fcff;
+}
+.gojo-record-transport[hidden], .gojo-record-transport button[hidden] { display: none; }
+
+.gojo-record-transport {
+  position: absolute;
+  z-index: 1;
+  top: 47px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  gap: 2px;
+  visibility: hidden;
+  pointer-events: none;
+}
+.gojo-records:has(.gojo-record-toggle:hover, .gojo-record-transport:hover) .gojo-record-transport {
+  visibility: visible;
+}
+.gojo-record-transport:not([hidden]) button { pointer-events: auto; }
+.gojo-record-transport button {
+  display: grid;
+  place-items: center;
+  width: 25px;
+  height: 27px;
+  border-radius: 50%;
+  color: #fff;
+  filter: drop-shadow(0 0 2px #102c46) drop-shadow(0 1px 2px #102c46);
+}
+.gojo-record-transport button:is(:hover, :focus-visible) {
+  background: #15395d88;
+}
+.gojo-records svg {
+  width: 15px;
+  height: 15px;
+  fill: currentColor;
+}
+.gojo-record-list {
+  position: absolute;
+  bottom: calc(100% + 9px);
+  right: 0;
+  width: min(216px, calc(100vw - 20px));
+  max-height: min(245px, 61vh);
+  overflow: auto;
+  padding: 6px;
+  border: 1px solid #a7c6dd;
+  border-radius: 13px;
+  background: #f6fcff;
+  box-shadow: 0 9px 28px #2455822c, inset 0 1px 0 #fff;
+}
+.gojo-record-list ul { padding: 0; margin: 0; list-style: none; }
+.gojo-record-list li > button {
+  display: grid;
+  width: 100%;
+  text-align: left;
+  padding: 6px 8px;
+  border-radius: 6px;
+}
+.gojo-record-list li > button:hover,
+.gojo-record-list li > button[aria-pressed="true"] { background: #e0f1fc; }
+.gojo-record-list li > button[aria-pressed="true"] { box-shadow: inset 2px 0 #579ccf; }
+.gojo-record-list small { color: #546e86; }
+.gojo-record-status { margin: 5px 8px; }
+.gojo-records[data-compact] { width: 44px; height: 44px; }
+.gojo-records[data-compact] .gojo-record-toggle {
+  width: 44px;
+  height: 44px;
+}
+.gojo-records[data-compact] .gojo-record-fire {
+  top: -19px;
+  width: 68px;
+  height: 70px;
+}
+.gojo-records[data-compact] .gojo-record-caption { display: none; }
+.gojo-records[data-compact] .gojo-record-transport {
+  top: 25px;
+  left: auto;
+  right: 0;
+  transform: translateY(-50%);
+}
+@media (prefers-reduced-motion: reduce) {
+  .gojo-records[data-playing] .gojo-record-disc i::before { animation: none; }
+  .gojo-records[data-playing] .gojo-record-disc { filter: drop-shadow(0 0 4px #54bdf4); }
+}
